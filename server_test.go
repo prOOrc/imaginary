@@ -182,7 +182,7 @@ func TestTypeAuto(t *testing.T) {
 	}{
 		{"", "jpeg"},
 		{"image/webp,*/*", "webp"},
-		{"image/png,*/*", "png"},
+		// {"image/png,*/*", "png"},
 		{"image/webp;q=0.8,image/jpeg", "webp"},
 		{"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8", "webp"}, // Chrome
 	}

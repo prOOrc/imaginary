@@ -48,6 +48,7 @@ type ImageOptions struct {
 	Extend        bimg.Extend
 	Gravity       bimg.Gravity
 	Colorspace    bimg.Interpretation
+	Gamma         float64
 	Operations    PipelineOperations
 }
 
@@ -146,6 +147,7 @@ func BimgOptions(o ImageOptions) bimg.Options {
 		Interlace:      o.Interlace,
 		Palette:        o.Palette,
 		Speed:          o.Speed,
+		Gamma:          o.Gamma,
 	}
 
 	if len(o.Background) != 0 {

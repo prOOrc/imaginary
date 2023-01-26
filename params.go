@@ -47,6 +47,7 @@ var paramTypeCoercions = map[string]Coercion{
 	"type":        coerceImageType,
 	"color":       coerceColor,
 	"colorspace":  coerceColorSpace,
+	"gamma":       coerceGamma,
 	"gravity":     coerceGravity,
 	"background":  coerceBackground,
 	"extend":      coerceExtend,
@@ -279,6 +280,15 @@ func coerceColorSpace(io *ImageOptions, param interface{}) error {
 	if v, ok := param.(string); ok {
 		io.Colorspace = parseColorspace(v)
 		return nil
+	}
+
+	return ErrUnsupportedValue
+}
+
+func coerceGamma(io *ImageOptions, param interface{}) (err error) {
+	if v, ok := param.(string); ok {
+		io.Gamma, err = parseFloat(v)
+		return err
 	}
 
 	return ErrUnsupportedValue

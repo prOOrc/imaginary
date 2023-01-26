@@ -10,3 +10,7 @@ require (
 	github.com/rs/cors v0.0.0-20170727213201-7af7a1e09ba3
 	gopkg.in/throttled/throttled.v2 v2.0.3
 )
+
+replace github.com/h2non/filetype => github.com/prOOrc/filetype v1.1.4
+
+replace github.com/h2non/bimg => github.com/prOOrc/bimg v1.1.11
