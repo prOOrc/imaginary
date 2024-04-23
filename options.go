@@ -44,6 +44,7 @@ type ImageOptions struct {
 	Color         []uint8
 	Background    []uint8
 	Interlace     bool
+	AddAlpha      bool
 	Speed         int
 	Extend        bimg.Extend
 	Gravity       bimg.Gravity
@@ -66,6 +67,7 @@ type IsDefinedField struct {
 	StripMetadata bool
 	Interlace     bool
 	Palette       bool
+	AddAlpha      bool
 }
 
 // PipelineOperation represents the structure for an operation field.
@@ -148,6 +150,7 @@ func BimgOptions(o ImageOptions) bimg.Options {
 		Palette:        o.Palette,
 		Speed:          o.Speed,
 		Gamma:          o.Gamma,
+		AddAlpha:       o.AddAlpha,
 	}
 
 	if len(o.Background) != 0 {

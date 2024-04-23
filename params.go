@@ -55,6 +55,7 @@ var paramTypeCoercions = map[string]Coercion{
 	"minampl":     coerceMinAmpl,
 	"operations":  coerceOperations,
 	"interlace":   coerceInterlace,
+	"addalpha":    coerceAddAlpha,
 	"aspectratio": coerceAspectRatio,
 	"palette":     coercePalette,
 	"speed":       coerceSpeed,
@@ -347,6 +348,12 @@ func coerceOperations(io *ImageOptions, param interface{}) (err error) {
 	}
 
 	return ErrUnsupportedValue
+}
+
+func coerceAddAlpha(io *ImageOptions, param interface{}) (err error) {
+	io.AddAlpha, err = coerceTypeBool(param)
+	io.IsDefinedField.AddAlpha = true
+	return err
 }
 
 func coerceInterlace(io *ImageOptions, param interface{}) (err error) {
